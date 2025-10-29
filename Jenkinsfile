@@ -34,7 +34,7 @@ pipeline {
             steps {
  //		dir('sample-app') {
                     echo 'Deploying WAR file to Tomcat...'
-                    sh 'cp target/hello-world.war /opt/tomcat/webapps/'
+                    sh 'cp target/sample-app.war /opt/tomcat/webapps/'
    //             }
 	    }	
         }
