@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Chandrakanth-Git-Hub/sample-app.git', branch: 'main'
+                git url: 'https://github.com/Chandrakanth-Git-Hub/sample.git', branch: 'main'
                   }
     }
 
