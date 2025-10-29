@@ -16,26 +16,24 @@ pipeline {
 
     stage('Build') {
             steps  {
- //		dir('sample-app') {
                     sh 'mvn clean package'
-   //         }
 	}
     }
 
     stage('Test') {
             steps {
- //		dir('sample-app') {
                     sh 'mvn test'
-   //       }
        }
     }
 
     stage('Deploy to Tomcat') {
             steps {
- //		dir('sample-app') {
-                    echo 'Deploying WAR file to Tomcat...'
-                    sh 'cp target/sample-app-1.0-SNAPSHOT.jar /opt/tomcat/webapps/'
-   //             }
+    //                echo 'Deploying WAR file to Tomcat...'
+    //                sh 'cp target/sample-app-1.0-SNAPSHOT.jar /opt/tomcat/webapps/'
+	sh '''
+        	docker build -t sampleapp:latest .
+        	docker run -d -p 8081:8080 sampleapp:latest
+        	'''
 	    }	
         }
     }
