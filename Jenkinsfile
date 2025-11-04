@@ -1,11 +1,16 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'MAVEN_HOME'
+        jdk 'JDK17'
+    }
+
     environment {
-        MAVEN_HOME = "/opt/apache-maven"
-        PATH = "$MAVEN_HOME/bin:$PATH"
-        DEPLOY_PATH = "/opt/tomcat/webapps"
-                }
+        DEPLOY_URL = 'http://localhost:8080/manager/text'
+        DEPLOY_USER = 'chandu'
+        DEPLOY_PASS = 'passwd'
+    }
 
     stages {
         stage('Checkout') {
